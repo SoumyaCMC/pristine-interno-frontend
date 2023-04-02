@@ -1373,6 +1373,16 @@ section {
   border-radius: 4px;
 }
 
+.contact button input{
+  background: #6b6a6b;
+  border: 0;
+  color: #f9f9f9;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.contact
+
 .contact .php-email-form button[type=submit]:hover {
   background: #a6a4a4;
 }
