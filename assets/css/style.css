@@ -402,12 +402,14 @@ h6 {
   height: 100vh;
   background: url("../img/hero-bg.jpg") top center;
   background-size: cover;
+  background-position: center;
   position: relative;
 }
 
+
 #hero:before {
   content: "";
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(2, 3, 6, 0.581);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -1075,6 +1077,20 @@ section {
   margin: 0 auto;
 }
 
+.testimonials h2{
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0 5px 0;
+  color: #f9f9f9;
+}
+
+.testimonials h3{
+  font-size: 20px;
+  font-weight: 600;
+  margin: 10px 0 5px 0;
+  color: #f9f9f9;
+}
+
 .testimonials .testimonial-item h3 {
   font-size: 20px;
   font-weight: bold;
@@ -1126,7 +1142,7 @@ section {
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #ffc451;
+  background-color: #f9f9f9;
   opacity: 1;
 }
 
@@ -1268,6 +1284,13 @@ section {
 .contact .info .email,
 .contact .info .phone {
   margin-top: 40px;
+}
+.contact .info .email a{
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  color: #151515;
+  text-decoration: underline;
 }
 
 .contact .php-email-form {
