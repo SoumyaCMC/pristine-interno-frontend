@@ -284,25 +284,42 @@
    */
   new PureCounter();
 
-  const btn = document.getElementById('button');
+ const btn = document.getElementById('button');
 
 document.getElementById('form')
- .addEventListener('submit', function(event) {
-   event.preventDefault();
+  .addEventListener('submit', async function (event) {
+    event.preventDefault();
+ const phoneInput = document.getElementById('phone_number');
+    const phone = phoneInput.value.trim();
 
-   btn.value = 'Sending...';
+    if (!/^[6-9]\d{9}$/.test(phone)) {
+      alert("Please enter a valid 10-digit mobile number.");
+      phoneInput.focus();
+      return;
+    }
+    btn.value = 'Sending...';
 
-   const serviceID = 'default_service';
-   const templateID = 'template_4rtuji6';
+    const formData = new FormData(this);
+    formData.append("access_key", "817dbe2e-a9e2-4ddf-9672-c2bee70a0ca2"); // Replace this with your Web3Forms key
 
-   emailjs.sendForm(serviceID, templateID, this)
-    .then(() => {
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      if (response.ok) {
+        btn.value = 'Send Email';
+        alert('Sent!');
+        this.reset(); // Clear the form after successful submission
+      } else {
+        const result = await response.json();
+        btn.value = 'Send Email';
+        alert("Error: " + (result.message || "Something went wrong."));
+      }
+    } catch (error) {
       btn.value = 'Send Email';
-      alert('Sent!');
-    }, (err) => {
-      btn.value = 'Send Email';
-      alert(JSON.stringify(err));
-    });
+      alert("Error: " + error.message);
+    }
 });
-
 })()
