@@ -300,7 +300,7 @@ document.getElementById('form')
     btn.value = 'Sending...';
 
     const formData = new FormData(this);
-    formData.append("access_key", "817dbe2e-a9e2-4ddf-9672-c2bee70a0ca2"); // Replace this with your Web3Forms key
+    formData.append("access_key", "b1f54a5d-ac03-4888-8ac7-fbe845b516c4"); // Replace this with your Web3Forms key
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
